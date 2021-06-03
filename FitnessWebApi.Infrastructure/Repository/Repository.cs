@@ -29,6 +29,9 @@ namespace FitnessWebApi.Infrastructure.Repository
             return await SpecificationBuilder<TDocument>.BuildQuery(_collection, specification).ToListAsync();
         }
 
-   
+        public Task<bool> UpdateAsync<TProjection>(IUpdateSpecification<TDocument, TProjection> specification) where TProjection : class
+        {
+           
+        }
     }
 }

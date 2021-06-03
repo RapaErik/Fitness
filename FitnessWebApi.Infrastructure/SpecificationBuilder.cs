@@ -51,5 +51,8 @@ namespace FitnessWebApi.Infrastructure
             
             return findFluentResult;
         }
+        
+        //TODO: Builder for Updates
+    
     }
 }
