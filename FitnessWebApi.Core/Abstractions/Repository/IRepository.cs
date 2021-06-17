@@ -11,13 +11,12 @@ namespace FitnessWebApi.Core.Abstractions.Repository
        
     {
         Task<IList<TDocument>> FindManyAsync(IQuerySpecification<TDocument> specification);
-
+        Task<TDocument> FindOneAsync(IQuerySpecification<TDocument> specification);
 
         Task<IList<TProjection>> FindManyAsync<TProjection>(IQueryWithProjectionSpecification<TDocument, TProjection> specification) where TProjection : class;
-
-        //TODO: for single object
+        Task<TProjection> FindOneAsync<TProjection>(IQueryWithProjectionSpecification<TDocument, TProjection> specification) where TProjection : class;
 
         Task<bool> UpdateAsync<TProjection>(IUpdateSpecification<TDocument, TProjection> specification) where TProjection : class;
-
+        Task<bool> UpdateAsync(IUpdateSpecification<TDocument, TDocument> specification);
     }
 }

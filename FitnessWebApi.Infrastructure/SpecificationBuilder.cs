@@ -16,10 +16,10 @@ namespace FitnessWebApi.Infrastructure
 
             if (querySpecification.FilterDefinition != null)
             {
-                findFluent = collection.Find(querySpecification.FilterDefinition,querySpecification.FindOptions);
+                findFluent = collection.Find(querySpecification.FilterDefinition, querySpecification.FindOptions);
             }
 
-            if(querySpecification.SortDefinition != null)
+            if (querySpecification.SortDefinition != null)
             {
                 findFluent = findFluent.Sort(querySpecification.SortDefinition);
             }
@@ -44,15 +44,36 @@ namespace FitnessWebApi.Infrastructure
             findFluent = BuildQuery(collection, querySpecification.GetBaseObject());
 
             IFindFluent<TDocument, TProjection> findFluentResult = default;
-            if (querySpecification.ProjectionDefinition!=null)
+            if (querySpecification.ProjectionDefinition != null)
             {
                 findFluentResult = findFluent.Project(querySpecification.ProjectionDefinition);
             }
-            
+
             return findFluentResult;
         }
-        
-        //TODO: Builder for Updates
-    
+
+        public static async Task<TProjection> BuildUpdateAsync<TProjection>(IMongoCollection<TDocument> collection, IUpdateSpecification<TDocument, TProjection> updateSpecification)
+    where TProjection : class
+        {
+            if (updateSpecification.FilterDefinition != null && updateSpecification.UpdateDefinition != null)
+            {
+                return await collection.FindOneAndUpdateAsync(updateSpecification.FilterDefinition, updateSpecification.UpdateDefinition, updateSpecification.Options);
+            }
+            return null;
+        }
+        public static async Task<TDocument> BuildUpdateAsync(IMongoCollection<TDocument> collection, IUpdateSpecification<TDocument, TDocument> updateSpecification)
+        {
+            if (updateSpecification.FilterDefinition != null && updateSpecification.UpdateDefinition != null)
+            {
+                return await collection.FindOneAndUpdateAsync(updateSpecification.FilterDefinition, updateSpecification.UpdateDefinition);
+
+            }
+            return null;
+        }
+
+        //TODO: create
+
+        //TODO: delete
+
     }
 }
