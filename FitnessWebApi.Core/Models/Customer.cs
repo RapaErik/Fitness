@@ -1,8 +1,6 @@
 ﻿using FitnessWebApi.Core.Abstractions.Models;
 using FitnessWebApi.Core.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FitnessWebApi.Core.Models
 {

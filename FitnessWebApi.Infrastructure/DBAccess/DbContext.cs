@@ -1,32 +1,29 @@
 ﻿using FitnessWebApi.Core.Abstractions.Models;
 using FitnessWebApi.Core.Attributes;
 using FitnessWebApi.Infrastructure.Abstractions.DBAccess;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace FitnessWebApi.Infrastructure.DBAccess
 {
     public class DbContext : IDbContext
     {
-        private readonly string _connectionString;
-        private readonly string _dbName;
+        private readonly MongoOptions _mongoOptions;
         private MongoClient _mongoClient;
-        public DbContext(string connectionString, string dbName)
+        public DbContext(IOptions<MongoOptions> options)
         {
-            _connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
-            _dbName = dbName ?? throw new ArgumentNullException(nameof(dbName));
+            _mongoOptions = options?.Value ?? throw new ArgumentNullException(nameof(options));
         }
         public void CreateClient()
         {
-            _mongoClient = new MongoClient(_connectionString);
+            _mongoClient = new MongoClient(_mongoOptions.ConnectionString);
         }
         
         public IMongoDatabase GetDatabase()
         {
-            return _mongoClient.GetDatabase(_dbName);
+            return _mongoClient.GetDatabase(_mongoOptions.DbName);
         }
 
         public IMongoCollection<TDocument> GetCollection<TDocument>() where TDocument : class, IDocument

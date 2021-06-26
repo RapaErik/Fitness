@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessWebApi", "FitnessWebApi\FitnessWebApi.csproj", "{39CAD0DE-2CFD-4DFF-A12C-B7C0A96601BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessWebApi", "FitnessWebApi\FitnessWebApi.csproj", "{39CAD0DE-2CFD-4DFF-A12C-B7C0A96601BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessWebApi.Core", "FitnessWebApi.Core\FitnessWebApi.Core.csproj", "{E98C967E-F932-4924-9799-9F5E46BAFD74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessWebApi.Core", "FitnessWebApi.Core\FitnessWebApi.Core.csproj", "{E98C967E-F932-4924-9799-9F5E46BAFD74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessWebApi.Infrastructure", "FitnessWebApi.Infrastructure\FitnessWebApi.Infrastructure.csproj", "{36EBDBDD-7355-470C-B89D-2D38F3E2E97F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessWebApi.Infrastructure", "FitnessWebApi.Infrastructure\FitnessWebApi.Infrastructure.csproj", "{36EBDBDD-7355-470C-B89D-2D38F3E2E97F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D98DCECD-531A-4EA3-B564-FA4A57856455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{36EBDBDD-7355-470C-B89D-2D38F3E2E97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36EBDBDD-7355-470C-B89D-2D38F3E2E97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36EBDBDD-7355-470C-B89D-2D38F3E2E97F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D98DCECD-531A-4EA3-B564-FA4A57856455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D98DCECD-531A-4EA3-B564-FA4A57856455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D98DCECD-531A-4EA3-B564-FA4A57856455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D98DCECD-531A-4EA3-B564-FA4A57856455}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

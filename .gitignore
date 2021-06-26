@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/MONGO_ROOT_PASSWORD.txt
+/FitnessWebApi/MONGO_ROOT_PASSWORD.txt
+/FitnessWebApi/MONGO_CONNECTION_STRING.txt
+/MONGO_CONNECTION_STRING.txt
